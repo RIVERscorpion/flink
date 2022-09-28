@@ -823,6 +823,7 @@ public class CheckpointCoordinator {
                         alignmentTimeout);
 
         // send the messages to the tasks that trigger their checkpoint
+        //wzq[检查点]: 向tasks发送消息，触发它们的检查点
         for (Execution execution : tasksToTrigger) {
             if (props.isSynchronous()) {
                 execution.triggerSynchronousSavepoint(checkpointID, timestamp, checkpointOptions);
