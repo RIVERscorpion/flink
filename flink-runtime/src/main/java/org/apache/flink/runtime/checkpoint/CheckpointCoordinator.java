@@ -430,7 +430,7 @@ public class CheckpointCoordinator {
 
     /**
      * Triggers a savepoint with the given savepoint directory as a target.
-     *
+     *wzq[检查点]：触发检查点入口，实质都是savepoint(保存检查点)，需要传入一个检查点数据存储位置目录
      * @param targetLocation Target location for the savepoint, optional. If null, the state
      *     backend's configured default will be used.
      * @return A future to the completed checkpoint
@@ -525,6 +525,7 @@ public class CheckpointCoordinator {
             }
 
             // we will actually trigger this checkpoint!
+            //wzq[检查点]：实际开始checkpoint
             Preconditions.checkState(!isTriggering);
             isTriggering = true;
 
@@ -622,6 +623,7 @@ public class CheckpointCoordinator {
                                                 // no exception, no discarding, everything is OK
                                                 final long checkpointId =
                                                         checkpoint.getCheckpointId();
+                                                //wzq[检查点]：触发task检查点入口
                                                 snapshotTaskState(
                                                         timestamp,
                                                         checkpointId,
@@ -800,7 +802,7 @@ public class CheckpointCoordinator {
 
     /**
      * Snapshot task state.
-     *
+     *wzq[检查点]：触发任务task 检查点快照
      * @param timestamp the timestamp of this checkpoint reques
      * @param checkpointID the checkpoint id
      * @param checkpointStorageLocation the checkpoint location
