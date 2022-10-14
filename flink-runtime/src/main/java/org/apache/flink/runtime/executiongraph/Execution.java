@@ -858,12 +858,14 @@ public class Execution
             throw new IllegalArgumentException(
                     "Only synchronous savepoints are allowed to advance the watermark to MAX.");
         }
-
-        final LogicalSlot slot = assignedResource;
+        //获取Resource
+        final LogicalSlot slot = assignedResource;//获取slot
 
         if (slot != null) {
+            //TaskManager是和TaskManager通信的基础抽象类
             final TaskManagerGateway taskManagerGateway = slot.getTaskManagerGateway();
 
+            //通过taskManagerGateway向TaskManager发送触发消息
             taskManagerGateway.triggerCheckpoint(
                     attemptId, getVertex().getJobId(), checkpointId, timestamp, checkpointOptions);
         } else {

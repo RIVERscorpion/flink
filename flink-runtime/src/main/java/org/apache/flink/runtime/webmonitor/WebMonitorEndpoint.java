@@ -169,7 +169,7 @@ import java.util.function.Function;
 
 /**
  * Rest endpoint which serves the web frontend REST calls.
- *
+ *wzq[rest]: web监视器端，相当于controller
  * @param <T> type of the leader gateway
  */
 public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndpoint
@@ -499,6 +499,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
                 savepointHandlers
                 .new StopWithSavepointHandler(leaderRetriever, timeout, responseHeaders);
 
+        //wzq[rest]:savepoint rest接口, checkpoint应该是使用的这个接口
         final SavepointHandlers.SavepointTriggerHandler savepointTriggerHandler =
                 savepointHandlers
                 .new SavepointTriggerHandler(leaderRetriever, timeout, responseHeaders);

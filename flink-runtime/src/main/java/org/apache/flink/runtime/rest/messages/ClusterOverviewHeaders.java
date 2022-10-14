@@ -46,6 +46,10 @@ public final class ClusterOverviewHeaders
         return HttpMethodWrapper.GET;
     }
 
+    /**
+     * wzq[rest]:这里就是路由信息 示例：http://${jobmaster-host}:8081/overview
+     * @return
+     */
     @Override
     public String getTargetRestEndpointURL() {
         return URL;

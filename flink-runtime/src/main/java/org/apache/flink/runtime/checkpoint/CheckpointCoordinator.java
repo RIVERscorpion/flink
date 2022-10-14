@@ -826,6 +826,7 @@ public class CheckpointCoordinator {
 
         // send the messages to the tasks that trigger their checkpoint
         //wzq[检查点]: 向tasks发送消息，触发它们的检查点
+        //从JobManager发送到TaskManager，通知指定的task触发checkpoint。
         for (Execution execution : tasksToTrigger) {
             if (props.isSynchronous()) {
                 execution.triggerSynchronousSavepoint(checkpointID, timestamp, checkpointOptions);

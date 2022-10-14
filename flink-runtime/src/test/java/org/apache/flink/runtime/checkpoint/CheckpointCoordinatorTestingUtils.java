@@ -410,6 +410,9 @@ public class CheckpointCoordinatorTestingUtils {
         return new KeyGroupsStateHandle(keyGroupRangeOffsets, allSerializedStatesHandle);
     }
 
+    /**
+     * wzq[checkpoint]：触发检查点消息类
+     */
     static class TriggeredCheckpoint {
         final JobID jobId;
         final long checkpointId;

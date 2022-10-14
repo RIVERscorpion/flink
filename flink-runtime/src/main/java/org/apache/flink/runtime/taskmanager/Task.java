@@ -1285,6 +1285,7 @@ public class Task
 
     /**
      * Calls the invokable to trigger a checkpoint.
+     * 调用可调用函数以触发检查点
      *
      * @param checkpointID The ID identifying the checkpoint.
      * @param checkpointTimestamp The timestamp associated with the checkpoint.
